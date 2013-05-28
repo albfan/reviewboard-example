@@ -6,7 +6,6 @@
 
 # Edit the below values, the only required change is DOMAIN_NAME
 # These values are _ONLY_ used at install time.
-CARTRIDGE_TYPE="python-2.6"
 DOMAIN_NAME="$OPENSHIFT_APP_DNS" # This is required to be set
 DATABASE_NAME="$OPENSHIFT_APP_NAME"
 DATABASE_TYPE="mysql"
@@ -14,7 +13,11 @@ REVIEWBOARD_ADMIN="admin"
 REVIEWBOARD_ADMIN_PASSWORD="OpenShiftAdmin" # Used only at install time
 REVIEWBOARD_ADMIN_EMAIL="example@example.com"
 export PYTHON_EGG_CACHE="$OPENSHIFT_DATA_DIR/$OPENSHIFT_APP_NAME/tmp/egg_cache"
-export PATH=$PATH:~/$CARTRIDGE_TYPE/virtenv/bin/
+if [ -f $OPENSHIFT_HOMEDIR/python-2.6 ]; then
+    export PATH=$PATH:$OPENSHIFT_HOMEDIR/python-2.6/virtenv/bin/
+else
+    export PATH=$PATH:$OPENSHIFT_HOMEDIR/python/virtenv/bin/
+fi
 
 set -e
 
