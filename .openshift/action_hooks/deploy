@@ -13,11 +13,7 @@ REVIEWBOARD_ADMIN="admin"
 REVIEWBOARD_ADMIN_PASSWORD="OpenShiftAdmin" # Used only at install time
 REVIEWBOARD_ADMIN_EMAIL="example@example.com"
 export PYTHON_EGG_CACHE="$OPENSHIFT_DATA_DIR/$OPENSHIFT_APP_NAME/tmp/egg_cache"
-if [ -f $OPENSHIFT_HOMEDIR/python-2.6 ]; then
-    export PATH=$PATH:$OPENSHIFT_HOMEDIR/python-2.6/virtenv/bin/
-else
-    export PATH=$PATH:$OPENSHIFT_HOMEDIR/python/virtenv/bin/
-fi
+export PATH=$PATH:$OPENSHIFT_HOMEDIR/python/virtenv/bin/
 
 set -e
 
@@ -51,6 +47,9 @@ if [ -d $OPENSHIFT_DATA_DIR$OPENSHIFT_APP_NAME ]
 then
     rb-site upgrade --noinput $OPENSHIFT_DATA_DIR$OPENSHIFT_APP_NAME/
 else
+    # Reviewboard requires latin1 encoding
+    echo "ALTER DATABASE $OPENSHIFT_APP_NAME CHARACTER SET latin1 COLLATE latin1_swedish_ci;" | mysql -h $OPENSHIFT_MYSQL_DB_HOST -P $OPENSHIFT_MYSQL_DB_PORT -u $OPENSHIFT_MYSQL_DB_USERNAME --password="$OPENSHIFT_MYSQL_DB_PASSWORD"
+
     rb-site install --domain-name="$DOMAIN_NAME" \
                     --db-name="$DATABASE_NAME" \
                     --db-type="$DATABASE_TYPE" \
