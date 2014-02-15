@@ -14,15 +14,14 @@ Usage
 =====
 Quick
 -----
-1. `rhc app create -a reviewboard python-2.6 mysql-5.1 --from-code git://github.com/openshift/reviewboard-example.git`
+1. `rhc app create reviewboard python-2.6 mysql-5.1 --from-code git://github.com/openshift/reviewboard-example.git`
 
 Manual
 ------
 1. Create a python-2.6 application and attach mysql to it:
 
     ```
-    rhc app create -a reviewboard -t python-2.6
-    rhc cartridge add -a reviewboard -c mysql-5.1
+    rhc app create reviewboard python-2.6 mysql-5.1
     ```
 
 1. Add this upstream reviewboard repo
