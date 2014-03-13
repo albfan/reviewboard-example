@@ -113,5 +113,5 @@ Adding deps to the install_requires will have the OpenShift server actually inst
 
 [reviewboard]: http://www.reviewboard.org/
 [openshift_env]: https://www.openshift.com/page/openshift-environment-variables
-[openshift]: http://openshift.redhat.com
+[openshift]: https://www.openshift.com
 
