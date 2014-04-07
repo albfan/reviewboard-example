@@ -14,7 +14,7 @@ Usage
 =====
 Quick
 -----
-1. `rhc app create reviewboard python-2.6 mysql-5.1 --from-code git://github.com/openshift/reviewboard-example.git`
+1. `rhc app create reviewboard python-2.6 mysql-5.1 --from-code git://github.com/openshift-quickstart/reviewboard-example.git`
 
 Manual
 ------
@@ -28,7 +28,7 @@ Manual
 
     ```
     cd reviewboard
-    git remote add upstream -m master git://github.com/openshift/reviewboard-example.git
+    git remote add upstream -m master git://github.com/openshift-quickstart/reviewboard-example.git
     git pull -s recursive -X theirs upstream master
     ```
 
@@ -55,7 +55,7 @@ and re-push.
    need to add this repository as an upsteam.
 
     ```
-    git remote add upstream -m master git://github.com/openshift/reviewboard-example.git
+    git remote add upstream -m master git://github.com/openshift-quickstart/reviewboard-example.git
     ```
 
 1. Pull from upstream:
