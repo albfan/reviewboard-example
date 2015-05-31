@@ -6,6 +6,6 @@ setup(name='YourAppName',
       author='Your Name',
       author_email='example@example.com',
       url='http://www.python.org/sigs/distutils-sig/',
-      install_requires=['ReviewBoard', 'Markdown', 'docutils'],
+      install_requires=['ReviewBoard', 'Markdown==2.4', 'docutils'],
 			dependency_links = ['https://www.djangoproject.com/download/1.4.5/tarball/#egg=Django-1.4.5',],
      )
